@@ -8,8 +8,13 @@ const initialState={
      switch(action.type){
       case 'SUBMIT':
         console.log("state changes" + action.payload)
-        state.name.push(action.payload)
-      default:
+        // state.name.push(action.payload)
+     return {
+        ...state,
+        name: [...state.name, action.payload]   // ✅ return new array
+      };
+
+        default:
         return state
     }
   }
